@@ -11,23 +11,33 @@
 
   body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
     margin: 0;
     padding: 0;
+    color: #333;
+    background: linear-gradient(135deg, #4caf50 0%, #a8d5a2 100%);
+    background-image: url("data:image/svg+xml;utf8,<svg width='40' height='40' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='2' fill='%234caf50' fill-opacity='0.15'/></svg>");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 40px 40px;
   }
 
   header {
-    background-color: #4caf50;
+    background-color: #3b8e3b;
     color: white;
     padding: 1.5rem 1rem;
     text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
   }
 
   main {
-    padding: 2rem 1rem;
     max-width: 900px;
-    margin: auto;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    background: rgba(255 255 255 / 0.9);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
 
   section {
@@ -54,6 +64,7 @@
     box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
 
   .service-box strong {
@@ -69,9 +80,19 @@
     color: #555;
   }
 
+  .service-box img {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    margin: 0 auto 12px auto;
+  }
+
   .contact-info p {
     margin: 0.4rem 0;
     font-size: 1rem;
+    text-align: center;
   }
 
   footer {
@@ -104,18 +125,30 @@
   <section>
     <h2>Serviços e Preços</h2>
     <div class="services-grid">
+
       <div class="service-box">
         <strong>Formatação completa — R$100</strong>
+        <img src="https://img.icons8.com/ios-filled/100/4caf50/hdd.png" alt="Ícone de Formatação" />
         <p class="service-description">Limpeza total do sistema, com reinstalação do Windows para deixar o computador como novo.</p>
       </div>
+
       <div class="service-box">
         <strong>Otimização do sistema — R$90</strong>
+        <img src="https://img.icons8.com/ios-filled/100/4caf50/settings.png" alt="Ícone de Otimização" />
         <p class="service-description">Melhorias no desempenho, menos travamentos, inicialização mais rápida, instalação dos principais apps essenciais e atualização dos drivers do sistema.</p>
       </div>
+
       <div class="service-box">
         <strong>Instalação do Windows Tiny11 — R$90 (opcional)</strong>
-        <p class="service-description">Caso seu computador não suporte o Windows 11 oficial, posso instalar o <strong>Tiny11</strong>, uma versão mais leve, rápida e que funciona mesmo em PCs sem os requisitos exigidos pela Microsoft.</p>
+        <a href="https://www.neowin.net/news/new-version-of-tiny11-builder-lets-you-debloat-any-windows-11-build-or-version/" target="_blank" rel="noopener noreferrer" style="display:block; margin-bottom:10px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); margin: 0 auto;">
+            <rect width="120" height="120" rx="15" fill="#4caf50"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="30" fill="white" font-family="Arial, sans-serif" font-weight="bold">Tiny11</text>
+          </svg>
+        </a>
+        <p class="service-description">Caso seu computador não suporte o Windows 11 oficial, posso instalar o <strong>Tiny11</strong>, uma versão mais leve e rápida que funciona mesmo em PCs sem os requisitos da Microsoft.</p>
       </div>
+
     </div>
   </section>
 
