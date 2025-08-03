@@ -1,93 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arthur Calebe - Formatação e Otimização</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arthur Calebe - Formatação e Otimização</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: #4caf50;
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  main {
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    color: #4caf50;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .services-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .service-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-box strong {
+    font-size: 1.1rem;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-description {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #555;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.8rem 1rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .contact-info p {
+    margin: 0.4rem 0;
+    font-size: 1rem;
+  }
+
+  .notice {
+    background: #e8f5e9;
+    border-left: 6px solid #4caf50;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #2e7d32;
+  }
+
+  footer {
+    background-color: #eee;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.6rem;
     }
-    header {
-      background-color: #4CAF50;
-      color: white;
+
+    .service-box {
       padding: 1rem;
-      text-align: center;
     }
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    h2 {
-      color: #4CAF50;
-    }
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    li {
-      margin-bottom: 1rem;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Arthur Calebe Ribeiro Silva</h1>
-    <p>Formatação, Otimização e Instalação de Windows</p>
-  </header>
+<header>
+  <h1>Arthur</h1>
+  <p>Formatação, Otimização e Instalação de Windows</p>
+</header>
 
-  <main>
-    <section>
-      <h2>Serviços</h2>
-      <p>Eu ofereço serviços de Otimização de sistema e Formatação completa. Segue a tabela abaixo: </p>
-      <ul>
-        <li><strong>Formatação completa — R$100</strong><br>
-          Limpeza total do sistema, com reinstalação do Windows para deixar o computador como novo.
-        </li>
-        <li><strong>Otimização do sistema — R$60</strong><br>
-          Melhorias no desempenho, menos travamentos e inicialização mais rápida.
-        </li>
-        <li><strong>Instalação do Windows Tiny11 — R$80 (opcional)</strong><br>
-          Caso seu computador não suporte o Windows 11 oficial, posso instalar o <strong>Tiny11</strong>, uma versão mais leve, rápida e que funciona mesmo em PCs sem os requisitos exigidos pela Microsoft.
-        </li>
-      </ul>
-    </section>
+<main>
+  <section>
+    <h2>Serviços e Preços</h2>
+    <div class="services-grid">
+      <div class="service-box">
+        <strong>Formatação completa — R$100</strong>
+        <p class="service-description">Limpeza total do sistema, com reinstalação do Windows para deixar o computador como novo.</p>
+      </div>
+      <div class="service-box">
+        <strong>Otimização do sistema — R$60</strong>
+        <p class="service-description">Melhorias no desempenho, menos travamentos e inicialização mais rápida.</p>
+      </div>
+      <div class="service-box">
+        <strong>Instalação do Windows Tiny11 — R$80 (opcional)</strong>
+        <p class="service-description">Caso seu computador não suporte o Windows 11 oficial, posso instalar o <strong>Tiny11</strong>, uma versão mais leve, rápida e que funciona mesmo em PCs sem os requisitos exigidos pela Microsoft.</p>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Compatibilidade</h2>
-      <p>Se o seu computador não é compatível com o Windows 11 oficial, não se preocupe. O <strong>Windows 11 Tiny</strong> é ideal para máquinas mais simples e garante desempenho e visual moderno sem os requisitos pesados.</p>
-    </section>
+  <section>
+    <h2>Compatibilidade</h2>
+    <p>Se o seu computador não é compatível com o Windows 11 oficial, não se preocupe. O <strong>Windows 11 Tiny</strong> é ideal para máquinas mais simples e garante desempenho e visual moderno sem os requisitos pesados.</p>
+  </section>
 
-    <section>
-      <h2>Contato</h2>
-      <p><strong>Email:</strong> arthur.calebersilva@gmail.com</p>
-      <p><strong>WhatsApp:</strong> (31) 98220-0720</p>
-    </section>
+  <section class="contact-info">
+    <h2>Contato</h2>
+    <p><strong>WhatsApp:</strong> (31) 98220-0720</p>
+  </section>
 
-    <section>
-      <h2>Avisos</h2>
-      <p>No momento o serviço de backup está indisponível por falta de pendrive extra.</p>
-      <p>Atendimento preferencialmente para vizinhos ou moradores do prédio.</p>
-    </section>
-  </main>
+  <section>
 
-  <footer>
-    © 2025 Arthur Calebe - Todos os direitos reservados
-  </footer>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Arthur Calebe - Todos os direitos reservados
+</footer>
 
 </body>
 </html>
