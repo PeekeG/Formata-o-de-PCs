@@ -21,6 +21,66 @@
     background-size: 40px 40px;
   }
 
+  #content {
+    transition: filter 0.5s ease;
+  }
+
+  #content.blur {
+    filter: blur(6px) brightness(0.7);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Splash overlay */
+  #splash {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.85);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  #splash.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #splash h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 90%;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    animation: slideFadeIn 0.7s ease forwards;
+  }
+
+  #splash button {
+    padding: 0.9rem 3rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(76,175,80,0.7);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 700;
+    animation: pulse 2.5s infinite;
+  }
+
+  #splash button:hover {
+    background-color: #388e3c;
+    transform: scale(1.08);
+  }
+
   header {
     background-color: #3b8e3b;
     color: white;
@@ -65,6 +125,13 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .service-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
   }
 
   .service-box strong {
@@ -101,11 +168,54 @@
     padding: 1rem;
     font-size: 0.9rem;
     color: #555;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  /* Animations */
+  @keyframes slideFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-25px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 6px 15px rgba(76,175,80,0.7);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(76,175,80,0.9);
+    }
+  }
+
+  /* Responsividade */
+
+  @media (max-width: 768px) {
+    main {
+      margin: 1rem;
+      padding: 1.5rem 1rem;
+    }
   }
 
   @media (max-width: 480px) {
     header h1 {
       font-size: 1.6rem;
+    }
+
+    #splash h2 {
+      font-size: 1.8rem;
+    }
+
+    #splash button {
+      font-size: 1rem;
+      padding: 0.7rem 2.5rem;
     }
 
     .service-box {
@@ -116,65 +226,89 @@
 </head>
 <body>
 
-<header>
-  <h1>Arthur</h1>
-  <p>Formatação, Otimização e Instalação de Windows</p>
-</header>
+<!-- Splash screen -->
+<div id="splash">
+  <h2>Você quer ver os serviços?</h2>
+  <button id="enter-btn">Sim</button>
+</div>
 
-<main>
-  <section>
-    <h2>Serviços e Preços</h2>
-    <div class="services-grid">
+<div id="content">
+  <header>
+    <h1>Arthur</h1>
+    <p>Formatação, Otimização e Instalação de Windows</p>
+  </header>
 
-      <div class="service-box">
-        <strong>Formatação completa — R$100</strong>
-        <img src="https://img.icons8.com/ios-filled/100/4caf50/hdd.png" alt="Ícone de Formatação" />
-        <p class="service-description">Limpeza total do sistema, com reinstalação do Windows para deixar o computador como novo.</p>
+  <main>
+    <section>
+      <h2>Serviços e Preços</h2>
+      <div class="services-grid">
+
+        <div class="service-box">
+          <strong>Formatação completa — R$100</strong>
+          <img src="https://img.icons8.com/ios-filled/100/4caf50/hdd.png" alt="Ícone de Formatação" />
+          <p class="service-description">Limpeza total do sistema, com reinstalação do Windows para deixar o computador como novo.</p>
+        </div>
+
+        <div class="service-box">
+          <strong>Otimização do sistema — R$90</strong>
+          <img src="https://img.icons8.com/ios-filled/100/4caf50/settings.png" alt="Ícone de Otimização" />
+          <p class="service-description">Melhorias no desempenho, menos travamentos, inicialização mais rápida, instalação dos principais apps essenciais e atualização dos drivers do sistema.</p>
+        </div>
+
+        <div class="service-box">
+          <strong>Instalação do Windows Tiny11 — R$90 (opcional)</strong>
+          <a href="https://www.neowin.net/news/new-version-of-tiny11-builder-lets-you-debloat-any-windows-11-build-or-version/" target="_blank" rel="noopener noreferrer" style="display:block; margin-bottom:10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); margin: 0 auto;">
+              <rect width="120" height="120" rx="15" fill="#4caf50"/>
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="30" fill="white" font-family="Arial, sans-serif" font-weight="bold">Tiny11</text>
+            </svg>
+          </a>
+          <p class="service-description">Caso seu computador não suporte o Windows 11 oficial, posso instalar o <strong>Tiny11</strong>, uma versão mais leve e rápida que funciona mesmo em PCs sem os requisitos da Microsoft.</p>
+        </div>
+
       </div>
+    </section>
 
-      <div class="service-box">
-        <strong>Otimização do sistema — R$90</strong>
-        <img src="https://img.icons8.com/ios-filled/100/4caf50/settings.png" alt="Ícone de Otimização" />
-        <p class="service-description">Melhorias no desempenho, menos travamentos, inicialização mais rápida, instalação dos principais apps essenciais e atualização dos drivers do sistema.</p>
-      </div>
+    <section>
+      <h2>Garantia de Serviço</h2>
+      <p style="max-width: 600px; margin: 0 auto; font-size: 1rem; color: #444; text-align: center;">
+        Todos os serviços possuem <strong>garantia de 90 dias</strong> contra problemas relacionados à formatação e otimização realizados. Seu computador ficará em boas mãos.
+      </p>
+    </section>
 
-      <div class="service-box">
-        <strong>Instalação do Windows Tiny11 — R$90 (opcional)</strong>
-        <a href="https://www.neowin.net/news/new-version-of-tiny11-builder-lets-you-debloat-any-windows-11-build-or-version/" target="_blank" rel="noopener noreferrer" style="display:block; margin-bottom:10px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); margin: 0 auto;">
-            <rect width="120" height="120" rx="15" fill="#4caf50"/>
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="30" fill="white" font-family="Arial, sans-serif" font-weight="bold">Tiny11</text>
-          </svg>
-        </a>
-        <p class="service-description">Caso seu computador não suporte o Windows 11 oficial, posso instalar o <strong>Tiny11</strong>, uma versão mais leve e rápida que funciona mesmo em PCs sem os requisitos da Microsoft.</p>
-      </div>
+    <section>
+      <h2>Compatibilidade</h2>
+      <p style="max-width: 600px; margin: 0 auto; font-size: 1rem; color: #444; text-align: center;">
+        Se o seu computador não é compatível com o Windows 11 oficial, não se preocupe. O <strong>Windows 11 Tiny</strong> é ideal para máquinas mais simples e garante desempenho e visual moderno sem os requisitos pesados.
+      </p>
+    </section>
 
-    </div>
-  </section>
+    <section class="contact-info">
+      <h2>Contato</h2>
+      <p><strong>WhatsApp:</strong> (31) 98220-0720</p>
+    </section>
+  </main>
 
-  <section>
-    <h2>Garantia de Serviço</h2>
-    <p style="max-width: 600px; margin: 0 auto; font-size: 1rem; color: #444; text-align: center;">
-      Todos os serviços possuem <strong>garantia de 90 dias</strong> contra problemas relacionados à formatação e otimização realizados. Seu computador ficará em boas mãos.
-    </p>
-  </section>
+  <footer>
+    © 2025 Arthur Calebe - Todos os direitos reservados
+  </footer>
+</div>
 
-  <section>
-    <h2>Compatibilidade</h2>
-    <p style="max-width: 600px; margin: 0 auto; font-size: 1rem; color: #444; text-align: center;">
-      Se o seu computador não é compatível com o Windows 11 oficial, não se preocupe. O <strong>Windows 11 Tiny</strong> é ideal para máquinas mais simples e garante desempenho e visual moderno sem os requisitos pesados.
-    </p>
-  </section>
+<script>
+  const splash = document.getElementById('splash');
+  const content = document.getElementById('content');
+  const enterBtn = document.getElementById('enter-btn');
 
-  <section class="contact-info">
-    <h2>Contato</h2>
-    <p><strong>WhatsApp:</strong> (31) 98220-0720</p>
-  </section>
-</main>
+  content.classList.add('blur');
 
-<footer>
-  © 2025 Arthur Calebe - Todos os direitos reservados
-</footer>
+  enterBtn.addEventListener('click', () => {
+    splash.classList.add('hide');
+    content.classList.remove('blur');
+    setTimeout(() => {
+      splash.style.display = 'none';
+    }, 500);
+  });
+</script>
 
 </body>
 </html>
